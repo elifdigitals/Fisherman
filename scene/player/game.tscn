@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://dunxfss2frxpw"]
+
+[ext_resource type="PackedScene" uid="uid://dyptcqs4nqipf" path="res://scene/player/player.tscn" id="1_0i882"]
+
+[node name="game" type="Node2D"]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+
+[node name="player" parent="." instance=ExtResource("1_0i882")]
+position = Vector2(-2, -8)
+
+[node name="Camera2D" type="Camera2D" parent="player"]
+zoom = Vector2(4, 4)
+limit_smoothed = true
