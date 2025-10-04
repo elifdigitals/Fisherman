@@ -1,40 +1,31 @@
 extends CharacterBody2D
 @onready var animated_sprite_2d = $AnimatedSprite2D
 
-<<<<<<< Updated upstream
-var SPEED = 200
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-=======
-@onready var animated_sprite_2d = $AnimatedSprite2D
 
 var SPEED = 200
->>>>>>> Stashed changes
+# Called when the node enters the scene tree for the first time.
+
+
 
 @export var BulletScene: PackedScene
 @export var AttackScene: PackedScene
 @export var fire_rate: float = 4.0
 
-<<<<<<< Updated upstream
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-=======
+
 var _shoot_cooldown: float = 0.0
 var _is_attacking: bool = false
 
 func _ready():
 	pass
 
->>>>>>> Stashed changes
+
 func _process(delta):
 	var movement = movement_vector()
 	var direction = movement.normalized()
 	velocity = SPEED * direction
 	move_and_slide()
-<<<<<<< Updated upstream
-
-func  movement_vector():
-=======
 	
 	if _shoot_cooldown > 0.0:
 		_shoot_cooldown = max(0.0, _shoot_cooldown - delta)
@@ -47,22 +38,25 @@ func  movement_vector():
 		_start_melee()
 
 func movement_vector() -> Vector2:
->>>>>>> Stashed changes
+
+	
+
+
+
+
 	var movement_x = Input.get_action_strength("run_right") - Input.get_action_strength("run_left")
 	var movement_y = Input.get_action_strength("run_back") - Input.get_action_strength("run_forward")
 	
 	if movement_x > 0:
-<<<<<<< Updated upstream
+
 		$AnimatedSprite2D.flip_h=false
 	else:
 		$AnimatedSprite2D.flip_h=true
 	
 	
 	return Vector2(movement_x,movement_y)
-=======
-		$AnimatedSprite2D.flip_h = false
-	elif movement_x < 0:
-		$AnimatedSprite2D.flip_h = true
+
+
 	
 	return Vector2(movement_x, movement_y)
 
@@ -100,4 +94,3 @@ func _start_melee() -> void:
 
 func _on_attack_finished():
 	_is_attacking = false
->>>>>>> Stashed changes
