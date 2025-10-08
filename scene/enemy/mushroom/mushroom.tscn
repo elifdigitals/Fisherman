@@ -450,9 +450,10 @@ script = ExtResource("1_qobpp")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_iopsa")
-animation = &"idle"
-autoplay = "idle"
-frame_progress = 0.398621
+animation = &"run"
+autoplay = "run"
+frame_progress = 0.97447443
+flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 18)
