@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://b8b370gvputdm"]
+
+[ext_resource type="Script" uid="uid://c538l6rxwn1h2" path="res://scene/enemy/spawn/enemy_spawn.gd" id="1_7e2rf"]
+[ext_resource type="PackedScene" uid="uid://bn3pdgjwh2wyj" path="res://scene/enemy/mushroom/mushroom.tscn" id="2_gbqyd"]
+
+[node name="enemySpawn" type="Node"]
+script = ExtResource("1_7e2rf")
+mashroom_scene = ExtResource("2_gbqyd")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 10.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
