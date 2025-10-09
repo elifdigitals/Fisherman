@@ -2,7 +2,9 @@ extends CharacterBody2D
 @onready var animated_sprite_2d = $AnimatedSprite2D
 
 var SPEED = 60
-# Called when the node enters the scene tree for the first time.
+#up, left, down, right = WASD
+var lastDirection = "S"
+
 func _ready():
 	pass # Replace with function body.
 
@@ -28,17 +30,32 @@ func  movement_vector():
 	if movement_x > 0:
 		$AnimatedSprite2D.play("run_right")
 		$AnimatedSprite2D.flip_h=false
+		lastDirection = "D"
 	if movement_x < 0:
 		$AnimatedSprite2D.play("run_right")
 		$AnimatedSprite2D.flip_h=true
+		lastDirection = "A"
 	
 	if movement_y > 0 and movement_x == 0:
 		$AnimatedSprite2D.play("run")
+		lastDirection = "S"
 		
 	if movement_y < 0 and movement_x == 0:
 		$AnimatedSprite2D.play("run_forward")
+		lastDirection = "W"
 		
 	if  movement_x == 0 and movement_y == 0:
-		$AnimatedSprite2D.play("idle")
+		if lastDirection == "A":
+			$AnimatedSprite2D.play("idle_right")
+			$AnimatedSprite2D.flip_h=true
+		if lastDirection == "W":
+			$AnimatedSprite2D.play("idle_forward")
+		if lastDirection == "S":
+			$AnimatedSprite2D.play("idle")
+		if lastDirection == "D":
+			$AnimatedSprite2D.play("idle_right")
+			$AnimatedSprite2D.flip_h=false
+			
+		
 	
 	return Vector2(movement_x,movement_y)
