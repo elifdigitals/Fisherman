@@ -643,6 +643,7 @@ sources/0 = SubResource("TileSetAtlasSource_3os6h")
 [node name="game" type="Node2D"]
 
 [node name="enemySpawn" parent="." instance=ExtResource("1_3os6h")]
+mashroom_scene = null
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 position = Vector2(0, 6)

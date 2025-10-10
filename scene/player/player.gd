@@ -14,7 +14,7 @@ func _process(delta):
 	var direction = movement_vector().normalized()
 	velocity = SPEED * direction
 	move_and_slide()
-	print(direction)
+	
 	
 
 func  movement_vector():
@@ -31,7 +31,7 @@ func  movement_vector():
 		$AnimatedSprite2D.play("run_right")
 		$AnimatedSprite2D.flip_h=false
 		lastDirection = "D"
-	if movement_x < 0:
+	elif movement_x < 0:
 		$AnimatedSprite2D.play("run_right")
 		$AnimatedSprite2D.flip_h=true
 		lastDirection = "A"
@@ -40,7 +40,7 @@ func  movement_vector():
 		$AnimatedSprite2D.play("run")
 		lastDirection = "S"
 		
-	if movement_y < 0 and movement_x == 0:
+	elif movement_y < 0 and movement_x == 0:
 		$AnimatedSprite2D.play("run_forward")
 		lastDirection = "W"
 		
@@ -48,11 +48,11 @@ func  movement_vector():
 		if lastDirection == "A":
 			$AnimatedSprite2D.play("idle_right")
 			$AnimatedSprite2D.flip_h=true
-		if lastDirection == "W":
+		elif lastDirection == "W":
 			$AnimatedSprite2D.play("idle_forward")
-		if lastDirection == "S":
+		elif lastDirection == "S":
 			$AnimatedSprite2D.play("idle")
-		if lastDirection == "D":
+		elif lastDirection == "D":
 			$AnimatedSprite2D.play("idle_right")
 			$AnimatedSprite2D.flip_h=false
 			

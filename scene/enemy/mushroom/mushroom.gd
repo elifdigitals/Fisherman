@@ -2,6 +2,7 @@ extends CharacterBody2D
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
 var max_speed = 30
+var max_distance = 1
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -21,6 +22,12 @@ func _process(delta: float) -> void:
 
 func get_direction_to_player():
 	var player = get_tree().get_first_node_in_group("player") as Node2D
+	var distance_to_player = player.global_position - global_position
+	
+	print(player.global_position - global_position)
 	if player != null:
-		return (player.global_position - global_position).normalized()
+		if distance_to_player.length() > max_distance:
+			return distance_to_player.normalized()
+		else:
+			return Vector2.ZERO
 	return Vector2(0,0)
