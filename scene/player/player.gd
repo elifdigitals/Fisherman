@@ -4,11 +4,16 @@ extends CharacterBody2D
 @onready var health = $Health
 
 var SPEED = 60
+
+# Called when the node enters the scene tree for the first time.
+
+
 @export var BulletScene: PackedScene
 @export var AttackScene: PackedScene
 @export var fire_rate: float = 4.0
 
 # Called when the node enters the scene tree for the first time.
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 
 var _shoot_cooldown: float = 0.0
@@ -27,8 +32,10 @@ func _process(delta):
 	velocity = SPEED * direction + knockback_velocity
 	move_and_slide()
 
+
 	
 	knockback_velocity = knockback_velocity.move_toward(Vector2.ZERO, delta * 300)
+
 	
 	if _shoot_cooldown > 0.0:
 		_shoot_cooldown = max(0.0, _shoot_cooldown - delta)
@@ -40,11 +47,11 @@ func _process(delta):
 
 	
 func movement_vector() -> Vector2:
+
 	var movement_x = Input.get_action_strength("run_right") - Input.get_action_strength("run_left")
 	var movement_y = Input.get_action_strength("run_back") - Input.get_action_strength("run_forward")
 	
 	if movement_x > 0:
-
 		animated_sprite_2d.play("run_right")
 		animated_sprite_2d.flip_h = false
 		lastDirection = "D"
@@ -73,13 +80,13 @@ func movement_vector() -> Vector2:
 			animated_sprite_2d.play("idle_right")
 			animated_sprite_2d.flip_h = false
 
-
 		$AnimatedSprite2D.flip_h=false
 	else:
 		$AnimatedSprite2D.flip_h=true
 	
 	
 	return Vector2(movement_x,movement_y)
+
 
 func _shoot():
 	if not BulletScene:
@@ -120,3 +127,4 @@ func _on_died():
 
 func apply_knockback(direction: Vector2, force: float):
 	knockback_velocity = direction.normalized() * force
+
