@@ -3,13 +3,18 @@ extends CharacterBody2D
 @onready var animated_sprite_2d = $AnimatedSprite2D
 @onready var health = $Health
 
-var SPEED = 200
+var SPEED = 60
 @export var BulletScene: PackedScene
 @export var AttackScene: PackedScene
 @export var fire_rate: float = 4.0
+
+# Called when the node enters the scene tree for the first time.
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+
 var _shoot_cooldown: float = 0.0
 var _is_attacking: bool = false
 var knockback_velocity: Vector2 = Vector2.ZERO
+var lastDirection = "S"
 
 func _ready():
 	health.connect("died", Callable(self, "_on_died"))
@@ -21,8 +26,8 @@ func _process(delta):
 	var direction = movement.normalized()
 	velocity = SPEED * direction + knockback_velocity
 	move_and_slide()
+
 	
-	# затухание нокбэка
 	knockback_velocity = knockback_velocity.move_toward(Vector2.ZERO, delta * 300)
 	
 	if _shoot_cooldown > 0.0:
@@ -33,14 +38,48 @@ func _process(delta):
 	if Input.is_action_just_pressed("attack") and not _is_attacking:
 		_start_melee()
 
+	
 func movement_vector() -> Vector2:
-	var x = Input.get_action_strength("run_right") - Input.get_action_strength("run_left")
-	var y = Input.get_action_strength("run_back") - Input.get_action_strength("run_forward")
-	if x > 0:
-		$AnimatedSprite2D.flip_h = false
-	elif x < 0:
-		$AnimatedSprite2D.flip_h = true
-	return Vector2(x, y)
+	var movement_x = Input.get_action_strength("run_right") - Input.get_action_strength("run_left")
+	var movement_y = Input.get_action_strength("run_back") - Input.get_action_strength("run_forward")
+	
+	if movement_x > 0:
+
+		animated_sprite_2d.play("run_right")
+		animated_sprite_2d.flip_h = false
+		lastDirection = "D"
+	if movement_x < 0:
+		animated_sprite_2d.play("run_right")
+		animated_sprite_2d.flip_h = true
+		lastDirection = "A"
+	
+	if movement_y > 0 and movement_x == 0:
+		animated_sprite_2d.play("run")
+		lastDirection = "S"
+		
+	if movement_y < 0 and movement_x == 0:
+		animated_sprite_2d.play("run_forward")
+		lastDirection = "W"
+		
+	if movement_x == 0 and movement_y == 0:
+		if lastDirection == "A":
+			animated_sprite_2d.play("idle_right")
+			animated_sprite_2d.flip_h = true
+		if lastDirection == "W":
+			animated_sprite_2d.play("idle_forward")
+		if lastDirection == "S":
+			animated_sprite_2d.play("idle")
+		if lastDirection == "D":
+			animated_sprite_2d.play("idle_right")
+			animated_sprite_2d.flip_h = false
+
+
+		$AnimatedSprite2D.flip_h=false
+	else:
+		$AnimatedSprite2D.flip_h=true
+	
+	
+	return Vector2(movement_x,movement_y)
 
 func _shoot():
 	if not BulletScene:
