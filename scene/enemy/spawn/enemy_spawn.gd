@@ -1,9 +1,9 @@
 extends Node
-@export var mashroom_scene: PackedScene
+@export var mushroom_scene: PackedScene
 @onready var camera_2d: Camera2D = $"../player/Camera2D"
 @onready var camera: Camera2D = get_viewport().get_camera_2d()
-
-var spawn_margin = 20
+"mashroom_scene"
+var spawn_margin = 50
 
 
 func _on_timer_timeout() -> void:
@@ -38,10 +38,10 @@ func _on_timer_timeout() -> void:
 			spawn_cordinates.x = view_rect_max_x + spawn_margin
 			spawn_cordinates.y = randf_range(view_rect_min_y, view_rect_max_y)
 	
-	if mashroom_scene == null:
+	if mushroom_scene == null:
 		push_error("Ошибка: Сцена 'mashroom_scene' не прикреплена в Инспекторе!")
 		return
 		
-	var enemy = mashroom_scene.instantiate() as Node2D
+	var enemy = mushroom_scene.instantiate() as Node2D
 	get_parent().add_child(enemy)
 	enemy.global_position = spawn_cordinates
