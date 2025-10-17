@@ -3,6 +3,9 @@
 [ext_resource type="Script" uid="uid://4xha0omr2kdf" path="res://scene/UI/arena_time_ui.gd" id="1_yqu2s"]
 
 [sub_resource type="FontFile" id="FontFile_idoc7"]
+subpixel_positioning = 0
+msdf_pixel_range = 14
+msdf_size = 128
 cache/0/23/0/ascent = 0.0
 cache/0/23/0/descent = 0.0
 cache/0/23/0/underline_position = 0.0
@@ -23,6 +26,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 theme_override_constants/margin_top = 9
 
 [node name="Label" type="Label" parent="MarginContainer"]

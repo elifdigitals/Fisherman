@@ -20,7 +20,6 @@ func get_direction_to_player():
 	var player = get_tree().get_first_node_in_group("player") as Node2D
 	var distance_to_player = player.global_position - global_position
 	
-	#print(player.global_position - global_position)
 	if player != null:
 		if distance_to_player.length() > max_distance:
 			return distance_to_player.normalized()

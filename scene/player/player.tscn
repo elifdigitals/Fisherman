@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://dyptcqs4nqipf"]
+[gd_scene load_steps=30 format=3 uid="uid://dyptcqs4nqipf"]
 
 [ext_resource type="Script" uid="uid://cpv6dn0084cwm" path="res://scene/player/player.gd" id="1_cm2cf"]
 [ext_resource type="Texture2D" uid="uid://bpqqtra3vgva1" path="res://assets/player/edle-sheet-sheet.png" id="2_6smn3"]
@@ -451,6 +451,9 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_6smn3"]
+radius = 50.159744
+
 [node name="player" type="CharacterBody2D" groups=["player"]]
 script = ExtResource("1_cm2cf")
 
@@ -464,3 +467,10 @@ sprite_frames = SubResource("SpriteFrames_cuc0u")
 animation = &"idle_right"
 autoplay = "idle"
 frame_progress = 0.3136177
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_6smn3")

@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=4 uid="uid://dunxfss2frxpw"]
+[gd_scene load_steps=9 format=4 uid="uid://dunxfss2frxpw"]
 
 [ext_resource type="PackedScene" uid="uid://dyptcqs4nqipf" path="res://scene/player/player.tscn" id="1_0i882"]
 [ext_resource type="PackedScene" uid="uid://b8b370gvputdm" path="res://scene/enemy/spawn/enemy_spawn.tscn" id="1_3os6h"]
 [ext_resource type="Texture2D" uid="uid://dv7ibjcwqtpw1" path="res://assets/0x72_DungeonTilesetII_v1.7.png" id="1_8fjqe"]
 [ext_resource type="PackedScene" uid="uid://hcte0jhdbfw6" path="res://scene/UI/arena_time_ui.tscn" id="1_malf6"]
 [ext_resource type="PackedScene" uid="uid://dyp543kxnx8hg" path="res://scene/manager/arena_time_manager.tscn" id="2_ybl3g"]
+[ext_resource type="PackedScene" uid="uid://dltkeitycqulu" path="res://scene/pickUps/pick_up_fish.tscn" id="6_qeyuu"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3os6h"]
 texture = ExtResource("1_8fjqe")
@@ -663,3 +664,12 @@ collision_layer = 0
 [node name="Camera2D" type="Camera2D" parent="player"]
 zoom = Vector2(3, 3)
 position_smoothing_enabled = true
+
+[node name="pickUpFish" parent="." instance=ExtResource("6_qeyuu")]
+position = Vector2(-83, 65)
+
+[node name="pickUpFish3" parent="." instance=ExtResource("6_qeyuu")]
+position = Vector2(-159, -88)
+
+[node name="pickUpFish2" parent="." instance=ExtResource("6_qeyuu")]
+position = Vector2(171, 68)
