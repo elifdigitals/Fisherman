@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=4 uid="uid://dunxfss2frxpw"]
+[gd_scene load_steps=10 format=4 uid="uid://dunxfss2frxpw"]
 
 [ext_resource type="PackedScene" uid="uid://dyptcqs4nqipf" path="res://scene/player/player.tscn" id="1_0i882"]
 [ext_resource type="PackedScene" uid="uid://b8b370gvputdm" path="res://scene/enemy/spawn/enemy_spawn.tscn" id="1_3os6h"]
 [ext_resource type="Texture2D" uid="uid://dv7ibjcwqtpw1" path="res://assets/0x72_DungeonTilesetII_v1.7.png" id="1_8fjqe"]
 [ext_resource type="PackedScene" uid="uid://hcte0jhdbfw6" path="res://scene/UI/arena_time_ui.tscn" id="1_malf6"]
 [ext_resource type="PackedScene" uid="uid://dyp543kxnx8hg" path="res://scene/manager/arena_time_manager.tscn" id="2_ybl3g"]
+[ext_resource type="PackedScene" uid="uid://ctamr2y56pehv" path="res://scene/manager/Balance_manager.tscn" id="3_xmlyg"]
 [ext_resource type="PackedScene" uid="uid://dltkeitycqulu" path="res://scene/pickUps/pick_up_fish.tscn" id="6_qeyuu"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3os6h"]
@@ -649,6 +650,8 @@ sources/0 = SubResource("TileSetAtlasSource_3os6h")
 arena_time_manager = NodePath("../ArenaTimeManager")
 
 [node name="ArenaTimeManager" parent="." instance=ExtResource("2_ybl3g")]
+
+[node name="balanceManager" parent="." instance=ExtResource("3_xmlyg")]
 
 [node name="enemySpawn" parent="." instance=ExtResource("1_3os6h")]
 

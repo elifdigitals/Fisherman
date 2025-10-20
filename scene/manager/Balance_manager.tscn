@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://ctamr2y56pehv"]
+
+[ext_resource type="Script" uid="uid://mfdp3hfc1m0m" path="res://scene/manager/Balance_manager.gd" id="1_yfxx4"]
+
+[node name="balanceManager" type="Node"]
+script = ExtResource("1_yfxx4")

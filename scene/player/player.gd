@@ -1,7 +1,7 @@
 extends CharacterBody2D
 @onready var animated_sprite_2d = $AnimatedSprite2D
 
-var SPEED = 60
+var SPEED = 100
 #up, left, down, right = WASD
 var lastDirection = "S"
 var acceleration = .09
