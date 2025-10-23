@@ -1,0 +1,52 @@
+[gd_scene load_steps=8 format=3 uid="uid://dltkeitycqulu"]
+
+[ext_resource type="Texture2D" uid="uid://7ery28vf6ypm" path="res://assets/Fishes/Fishes_16x16.png" id="1_ilsf6"]
+[ext_resource type="Script" uid="uid://cf4hhh5nn5nor" path="res://scene/pickUps/pick_up_fish.gd" id="1_lxmap"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lxmap"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ilsf6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lxmap"]
+atlas = ExtResource("1_ilsf6")
+region = Rect2(32, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t5ki8"]
+atlas = ExtResource("1_ilsf6")
+region = Rect2(48, 16, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jdatl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lxmap")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t5ki8")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="pickUpFish" type="CharacterBody2D"]
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("1_lxmap")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_lxmap")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_ilsf6")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_jdatl")
+autoplay = "default"
+frame_progress = 0.52652395
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

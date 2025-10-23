@@ -1,0 +1,55 @@
+extends CharacterBody2D
+@onready var animated_sprite_2d = $AnimatedSprite2D
+
+var SPEED = 100
+#up, left, down, right = WASD
+var lastDirection = "S"
+var acceleration = .09
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	var direction = movement_vector().normalized()
+	var target_velocity = SPEED * direction
+	velocity = velocity.lerp(target_velocity, acceleration)
+	move_and_slide()
+	
+	
+
+func  movement_vector():
+	var movement_x = Input.get_action_strength("run_right") - Input.get_action_strength("run_left")
+	var movement_y = Input.get_action_strength("run_back") - Input.get_action_strength("run_forward")
+	
+	
+	if movement_x > 0:
+		$AnimatedSprite2D.play("run_right")
+		$AnimatedSprite2D.flip_h=false
+		lastDirection = "D"
+	elif movement_x < 0:
+		$AnimatedSprite2D.play("run_right")
+		$AnimatedSprite2D.flip_h=true
+		lastDirection = "A"
+	
+	if movement_y > 0 and movement_x == 0:
+		$AnimatedSprite2D.play("run")
+		lastDirection = "S"
+		
+	elif movement_y < 0 and movement_x == 0:
+		$AnimatedSprite2D.play("run_forward")
+		lastDirection = "W"
+		
+	if  movement_x == 0 and movement_y == 0:
+		if lastDirection == "A":
+			$AnimatedSprite2D.play("idle_right")
+			$AnimatedSprite2D.flip_h=true
+		elif lastDirection == "W":
+			$AnimatedSprite2D.play("idle_forward")
+		elif lastDirection == "S":
+			$AnimatedSprite2D.play("idle")
+		elif lastDirection == "D":
+			$AnimatedSprite2D.play("idle_right")
+			$AnimatedSprite2D.flip_h=false
+			
+		
+	
+	return Vector2(movement_x,movement_y)
