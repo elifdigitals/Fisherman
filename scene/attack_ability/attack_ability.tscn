@@ -1,7 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://dbb6jvirbr1te"]
+[gd_scene load_steps=7 format=3 uid="uid://dbb6jvirbr1te"]
 
-[ext_resource type="Script" path="res://scene/abilities/attack_ability/attack_ability.gd" id="1_8q3cs"]
-[ext_resource type="Texture2D" uid="uid://pxp18mpneqyc" path="res://scene/abilities/attack_ability/attack_ability.png" id="1_ksi6a"]
+[ext_resource type="Texture2D" uid="uid://pxp18mpneqyc" path="res://scene/attack_ability/attack_ability.png" id="1_ksi6a"]
 [ext_resource type="PackedScene" uid="uid://b2xe2q0ii2gk4" path="res://scene/components/hit_box_component.tscn" id="2_lm5kn"]
 
 [sub_resource type="Animation" id="Animation_cu0l4"]
@@ -100,15 +99,14 @@ tracks/3/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_4xti6"]
 _data = {
-"RESET": SubResource("Animation_cu0l4"),
-"attack_animation": SubResource("Animation_sdhjs")
+&"RESET": SubResource("Animation_cu0l4"),
+&"attack_animation": SubResource("Animation_sdhjs")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bpptp"]
 size = Vector2(38, 58)
 
 [node name="AttackAbility" type="Node2D"]
-script = ExtResource("1_8q3cs")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_ksi6a")
@@ -116,13 +114,13 @@ offset = Vector2(0, -12)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_4xti6")
+&"": SubResource("AnimationLibrary_4xti6")
 }
 autoplay = "attack_animation"
 
 [node name="HitBoxComponent" parent="." instance=ExtResource("2_lm5kn")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBoxComponent"]
-position = Vector2(19, 0)
+position = Vector2(1, -6)
 shape = SubResource("RectangleShape2D_bpptp")
 disabled = true

@@ -1,7 +1,8 @@
 [gd_scene load_steps=3 format=3 uid="uid://d02yl8nx3spsb"]
 
-[ext_resource type="Script" path="res://scene/abilities/attack_ability/attack_controller.gd" id="1_dtw86"]
-[ext_resource type="PackedScene" uid="uid://dbb6jvirbr1te" path="res://scene/abilities/attack_ability/attack_ability.tscn" id="2_ieqgc"]
+[ext_resource type="Script" uid="uid://drt5g4f0yxffe" path="res://scene/attack_ability/attack_controller.gd" id="1_dtw86"]
+[ext_resource type="PackedScene" uid="uid://dbb6jvirbr1te" path="res://scene/attack_ability/attack_ability.tscn" id="2_ieqgc"]
+
 
 [node name="AttackController" type="Node"]
 script = ExtResource("1_dtw86")
