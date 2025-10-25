@@ -19,6 +19,11 @@ config/icon="res://icon.svg"
 
 gdscript/warnings/unused_variable=0
 
+[display]
+
+window/size/viewport_width=1402
+window/size/viewport_height=898
+
 [input]
 
 run_forward={
