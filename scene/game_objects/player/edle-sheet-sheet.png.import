@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d2xxk2f1tnp4g"
-path="res://.godot/imported/goblin_run_anim_f1.png-1ae15b4f5f58be0d80c391a36366d7d9.ctex"
+uid="uid://baqvml07aikkd"
+path="res://.godot/imported/edle-sheet-sheet.png-03d718d7849db11e3899998a11291322.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scene/game_objects/goblin/goblin_run_anim_f1.png"
-dest_files=["res://.godot/imported/goblin_run_anim_f1.png-1ae15b4f5f58be0d80c391a36366d7d9.ctex"]
+source_file="res://scene/game_objects/player/edle-sheet-sheet.png"
+dest_files=["res://.godot/imported/edle-sheet-sheet.png-03d718d7849db11e3899998a11291322.ctex"]
 
 [params]
 

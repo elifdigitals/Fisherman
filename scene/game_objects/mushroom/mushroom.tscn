@@ -1,7 +1,7 @@
 [gd_scene load_steps=22 format=3 uid="uid://gkjsjqkbm64f"]
 
 [ext_resource type="Texture2D" uid="uid://dvy4yr6lfwleo" path="res://scene/game_objects/mushroom/SmallMushroom_Idle_1.png" id="1_5lq86"]
-[ext_resource type="Script" path="res://scene/game_objects/mushroom/mushroom.gd" id="1_ayies"]
+[ext_resource type="Script" uid="uid://dwd7o15xqnwh" path="res://scene/game_objects/mushroom/mushroom.gd" id="1_ayies"]
 [ext_resource type="PackedScene" uid="uid://dx1r38wof7rea" path="res://scene/components/death_component.tscn" id="2_acheu"]
 [ext_resource type="PackedScene" uid="uid://bknx8pl355mwx" path="res://scene/components/health_component.tscn" id="2_iwc2k"]
 [ext_resource type="Texture2D" uid="uid://yadewbu07bht" path="res://scene/game_objects/mushroom/SmallMushroom_Idle_2.png" id="2_q7cpi"]
@@ -15,7 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://dum84uimfu630" path="res://scene/game_objects/mushroom/SmallMushroom_Walk_3.png" id="7_1qef5"]
 [ext_resource type="PackedScene" uid="uid://d3ve7w7ihn2oi" path="res://scene/components/flash_component.tscn" id="7_2oetv"]
 [ext_resource type="Texture2D" uid="uid://c805oiy85akah" path="res://scene/game_objects/mushroom/SmallMushroom_Walk_4.png" id="8_6bg6h"]
-[ext_resource type="Shader" path="res://scene/components/flash_component.gdshader" id="8_d4b48"]
+[ext_resource type="Shader" uid="uid://dv4cv3456bc1b" path="res://scene/components/flash_component.gdshader" id="8_d4b48"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_n2ito"]
 resource_local_to_scene = true
@@ -95,9 +95,9 @@ shape = SubResource("CircleShape2D_7dmwc")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_cb7xh")
-animation = &"run"
+animation = &"idle"
 autoplay = "idle"
-frame_progress = 0.317957
+frame_progress = 0.95536214
 offset = Vector2(0, -16)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

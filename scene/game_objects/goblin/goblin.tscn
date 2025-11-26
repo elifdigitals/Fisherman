@@ -1,6 +1,6 @@
-[gd_scene load_steps=22 format=3 uid="uid://dlkl15bmubfym"]
+[gd_scene load_steps=40 format=3 uid="uid://dlkl15bmubfym"]
 
-[ext_resource type="Script" path="res://scene/game_objects/mushroom/mushroom.gd" id="1_t8dj1"]
+[ext_resource type="Script" uid="uid://dwd7o15xqnwh" path="res://scene/game_objects/mushroom/mushroom.gd" id="1_t8dj1"]
 [ext_resource type="PackedScene" uid="uid://dx1r38wof7rea" path="res://scene/components/death_component.tscn" id="2_l5nqi"]
 [ext_resource type="PackedScene" uid="uid://bknx8pl355mwx" path="res://scene/components/health_component.tscn" id="4_3kokp"]
 [ext_resource type="PackedScene" uid="uid://c6p3602p5fvng" path="res://scene/components/exp_bottle_drop_component.tscn" id="5_1gh0v"]
@@ -8,14 +8,9 @@
 [ext_resource type="PackedScene" uid="uid://xiddgiw217tu" path="res://scene/components/movement_component.tscn" id="6_ipbs6"]
 [ext_resource type="PackedScene" uid="uid://d3ve7w7ihn2oi" path="res://scene/components/flash_component.tscn" id="7_b5vqa"]
 [ext_resource type="Texture2D" uid="uid://mru1kxvcf3yp" path="res://scene/game_objects/goblin/goblin_idle_anim_f0.png" id="7_wt440"]
-[ext_resource type="Texture2D" uid="uid://b8iftlff0l24s" path="res://scene/game_objects/goblin/goblin_idle_anim_f1.png" id="8_pcmde"]
-[ext_resource type="Shader" path="res://scene/components/flash_component.gdshader" id="8_r0cup"]
-[ext_resource type="Texture2D" uid="uid://br1nv6g6620ho" path="res://scene/game_objects/goblin/goblin_idle_anim_f2.png" id="9_jlbkb"]
-[ext_resource type="Texture2D" uid="uid://bq0tlwccaa0d6" path="res://scene/game_objects/goblin/goblin_idle_anim_f3.png" id="10_w7ibq"]
-[ext_resource type="Texture2D" uid="uid://bxy6e7yjwqjoi" path="res://scene/game_objects/goblin/goblin_run_anim_f0.png" id="11_hiuwv"]
-[ext_resource type="Texture2D" uid="uid://d2xxk2f1tnp4g" path="res://scene/game_objects/goblin/goblin_run_anim_f1.png" id="12_jsedd"]
-[ext_resource type="Texture2D" uid="uid://bay61plip1v6c" path="res://scene/game_objects/goblin/goblin_run_anim_f2.png" id="13_y68tv"]
-[ext_resource type="Texture2D" uid="uid://wq1033h42wbo" path="res://scene/game_objects/goblin/goblin_run_anim_f3.png" id="14_im0ng"]
+[ext_resource type="Shader" uid="uid://dv4cv3456bc1b" path="res://scene/components/flash_component.gdshader" id="8_r0cup"]
+[ext_resource type="Texture2D" uid="uid://dkpy5nr3jvt8j" path="res://scene/game_objects/mushroom/fish-edle.png" id="10_df7ma"]
+[ext_resource type="Texture2D" uid="uid://ck0o0j8cfdhu2" path="res://scene/game_objects/mushroom/fish-walk.png" id="11_8i7ci"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_pp1dp"]
 resource_local_to_scene = true
@@ -23,21 +18,123 @@ shader = ExtResource("8_r0cup")
 shader_parameter/percent = 0.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_m4s5f"]
+radius = 26.076809
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ra7gy"]
+atlas = ExtResource("10_df7ma")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_se60v"]
+atlas = ExtResource("10_df7ma")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6onfi"]
+atlas = ExtResource("10_df7ma")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6bvge"]
+atlas = ExtResource("10_df7ma")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wvx37"]
+atlas = ExtResource("10_df7ma")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cu0c4"]
+atlas = ExtResource("10_df7ma")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yod6d"]
+atlas = ExtResource("10_df7ma")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p61hk"]
+atlas = ExtResource("11_8i7ci")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jr04c"]
+atlas = ExtResource("11_8i7ci")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_df7ma"]
+atlas = ExtResource("11_8i7ci")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oladr"]
+atlas = ExtResource("11_8i7ci")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iwveg"]
+atlas = ExtResource("11_8i7ci")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x7itd"]
+atlas = ExtResource("11_8i7ci")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ore7t"]
+atlas = ExtResource("11_8i7ci")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5bs6e"]
+atlas = ExtResource("11_8i7ci")
+region = Rect2(448, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pfntg"]
+atlas = ExtResource("11_8i7ci")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ta4dj"]
+atlas = ExtResource("11_8i7ci")
+region = Rect2(64, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5rnvk"]
+atlas = ExtResource("11_8i7ci")
+region = Rect2(128, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p1n6u"]
+atlas = ExtResource("11_8i7ci")
+region = Rect2(192, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hs84p"]
+atlas = ExtResource("11_8i7ci")
+region = Rect2(256, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5gmwm"]
+atlas = ExtResource("11_8i7ci")
+region = Rect2(320, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_evkhu"]
+atlas = ExtResource("11_8i7ci")
+region = Rect2(384, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ere7"]
+atlas = ExtResource("11_8i7ci")
+region = Rect2(448, 64, 64, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_mkcj4"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("7_wt440")
+"texture": SubResource("AtlasTexture_ra7gy")
 }, {
 "duration": 1.0,
-"texture": ExtResource("8_pcmde")
+"texture": SubResource("AtlasTexture_se60v")
 }, {
 "duration": 1.0,
-"texture": ExtResource("9_jlbkb")
+"texture": SubResource("AtlasTexture_6onfi")
 }, {
 "duration": 1.0,
-"texture": ExtResource("10_w7ibq")
+"texture": SubResource("AtlasTexture_6bvge")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wvx37")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cu0c4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yod6d")
 }],
 "loop": true,
 "name": &"idle",
@@ -45,16 +142,52 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("11_hiuwv")
+"texture": SubResource("AtlasTexture_p61hk")
 }, {
 "duration": 1.0,
-"texture": ExtResource("12_jsedd")
+"texture": SubResource("AtlasTexture_jr04c")
 }, {
 "duration": 1.0,
-"texture": ExtResource("13_y68tv")
+"texture": SubResource("AtlasTexture_df7ma")
 }, {
 "duration": 1.0,
-"texture": ExtResource("14_im0ng")
+"texture": SubResource("AtlasTexture_oladr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iwveg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x7itd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ore7t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5bs6e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pfntg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ta4dj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5rnvk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p1n6u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hs84p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5gmwm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_evkhu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ere7")
 }],
 "loop": true,
 "name": &"run",
@@ -62,10 +195,9 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_s0t1p"]
-radius = 4.0
+radius = 8.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_auhsb"]
-radius = 5.09902
 
 [node name="Goblin" type="CharacterBody2D" groups=["enemy"]]
 collision_layer = 4
@@ -90,13 +222,15 @@ flash_material = SubResource("ShaderMaterial_pp1dp")
 health_component = NodePath("../HealthComponent")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBoxComponent"]
-position = Vector2(0, -7)
+position = Vector2(0, -4)
 shape = SubResource("CircleShape2D_m4s5f")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-1, -4)
 sprite_frames = SubResource("SpriteFrames_mkcj4")
-animation = &"idle"
+animation = &"run"
 autoplay = "idle"
+frame_progress = 0.055803787
 offset = Vector2(0, -8)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
