@@ -1,11 +1,11 @@
-[gd_scene load_steps=39 format=3 uid="uid://b0ump57ta6uh8"]
+[gd_scene load_steps=44 format=3 uid="uid://b0ump57ta6uh8"]
 
 [ext_resource type="Script" uid="uid://cxkp4iv8bgowp" path="res://scene/game_objects/player/player.gd" id="1_8oolj"]
-[ext_resource type="Texture2D" uid="uid://c1tcfei7yvse7" path="res://scene/game_objects/player/knight_f_hit_anim_f0.png" id="1_i2o30"]
 [ext_resource type="PackedScene" uid="uid://d02yl8nx3spsb" path="res://scene/abilities/attack_ability/attack_controller.tscn" id="2_prcev"]
 [ext_resource type="PackedScene" uid="uid://bknx8pl355mwx" path="res://scene/components/health_component.tscn" id="3_5ccbm"]
 [ext_resource type="PackedScene" uid="uid://d3ve7w7ihn2oi" path="res://scene/components/flash_component.tscn" id="4_vg873"]
 [ext_resource type="Shader" uid="uid://dv4cv3456bc1b" path="res://scene/components/flash_component.gdshader" id="5_rcb2o"]
+[ext_resource type="Texture2D" uid="uid://bybp3crndoy8o" path="res://scene/game_objects/player/hit.png" id="6_48qb4"]
 [ext_resource type="Texture2D" uid="uid://bn4o8xy56iq1u" path="res://scene/game_objects/player/360walk.png" id="8_48qb4"]
 [ext_resource type="Texture2D" uid="uid://baqvml07aikkd" path="res://scene/game_objects/player/edle-sheet-sheet.png" id="11_0ygly"]
 
@@ -27,6 +27,26 @@ border_color = Color(0.133333, 0.133333, 0.133333, 1)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kovgu"]
 radius = 56.008926
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uufy7"]
+atlas = ExtResource("6_48qb4")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_edl67"]
+atlas = ExtResource("6_48qb4")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t4lt5"]
+atlas = ExtResource("6_48qb4")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jyiia"]
+atlas = ExtResource("6_48qb4")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dx8m4"]
+atlas = ExtResource("6_48qb4")
+region = Rect2(256, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_48qb4"]
 atlas = ExtResource("11_0ygly")
@@ -124,11 +144,23 @@ region = Rect2(256, 64, 64, 64)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_i2o30")
+"texture": SubResource("AtlasTexture_uufy7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_edl67")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t4lt5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jyiia")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dx8m4")
 }],
 "loop": false,
 "name": &"hit",
-"speed": 5.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -331,9 +363,10 @@ shape = SubResource("CircleShape2D_kovgu")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -14)
 sprite_frames = SubResource("SpriteFrames_x72wf")
-animation = &"run_right"
+animation = &"hit"
 autoplay = "idle"
-frame_progress = 0.014744028
+frame = 4
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1, -5)

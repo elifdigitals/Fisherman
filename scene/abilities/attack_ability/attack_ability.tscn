@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://dbb6jvirbr1te"]
 
 [ext_resource type="Script" uid="uid://bqe7aj8ambwyc" path="res://scene/abilities/attack_ability/attack_ability.gd" id="1_8q3cs"]
-[ext_resource type="Texture2D" uid="uid://clnyhe2h2auvf" path="res://scene/abilities/attack_ability/attack_ability.png" id="1_ksi6a"]
+[ext_resource type="Texture2D" uid="uid://cn58qtdup0kpo" path="res://scene/abilities/attack_ability/image_2025-11-28_235559917.png" id="2_73mma"]
 [ext_resource type="PackedScene" uid="uid://b2xe2q0ii2gk4" path="res://scene/components/hit_box_component.tscn" id="2_lm5kn"]
 
 [sub_resource type="Animation" id="Animation_cu0l4"]
@@ -111,7 +111,7 @@ size = Vector2(38, 58)
 script = ExtResource("1_8q3cs")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_ksi6a")
+texture = ExtResource("2_73mma")
 offset = Vector2(0, -12)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
