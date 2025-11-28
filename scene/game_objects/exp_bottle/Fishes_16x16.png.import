@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://clnyhe2h2auvf"
-path="res://.godot/imported/attack_ability.png-c232d0024a38de68ebe4b3e63a626ba7.ctex"
+uid="uid://clwelqtfqg4fn"
+path="res://.godot/imported/Fishes_16x16.png-16ed06a7dff70d816b3bb2e1cd3fdc66.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scene/abilities/attack_ability/attack_ability.png"
-dest_files=["res://.godot/imported/attack_ability.png-c232d0024a38de68ebe4b3e63a626ba7.ctex"]
+source_file="res://scene/game_objects/exp_bottle/Fishes_16x16.png"
+dest_files=["res://.godot/imported/Fishes_16x16.png-16ed06a7dff70d816b3bb2e1cd3fdc66.ctex"]
 
 [params]
 

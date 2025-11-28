@@ -135,6 +135,27 @@ animations = [{
 "texture": SubResource("AtlasTexture_48qb4")
 }, {
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_48qb4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_48qb4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ju00n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ju00n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_48qb4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_48qb4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_48qb4")
+}, {
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_ju00n")
 }, {
 "duration": 1.0,
@@ -142,7 +163,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle",
-"speed": 7.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -162,7 +183,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle_back",
-"speed": 5.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -197,7 +218,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle_right",
-"speed": 5.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -217,7 +238,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"run",
-"speed": 7.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -237,7 +258,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"run_back",
-"speed": 5.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -257,7 +278,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"run_right",
-"speed": 5.0
+"speed": 10.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0nrqd"]
@@ -310,8 +331,9 @@ shape = SubResource("CircleShape2D_kovgu")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -14)
 sprite_frames = SubResource("SpriteFrames_x72wf")
-animation = &"idle"
+animation = &"run_right"
 autoplay = "idle"
+frame_progress = 0.014744028
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1, -5)

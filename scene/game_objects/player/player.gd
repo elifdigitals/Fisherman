@@ -6,6 +6,7 @@ extends CharacterBody2D
 @onready var ability_manager = $AbilityManager
 @onready var animated_sprite_2d = $AnimatedSprite2D
 
+var lastDirection = "S"
 var max_speed = 125
 var acceleration = .15
 var enemies_colliding = 0
@@ -17,27 +18,67 @@ func _ready():
 	health_update()
 
 
+#func _process(delta):
+	#var direction = movement_vector().normalized()
+	#var target_velocity = max_speed * direction
+	#
+	#velocity = velocity.lerp(target_velocity, acceleration)
+	#move_and_slide()
+	#
+	#if direction.x != 0 || direction.y != 0:
+		#animated_sprite_2d.play("run")
+	#else:
+		#animated_sprite_2d.play("idle")
+		#
+	#var face_sign = sign(direction.x)
+	#if face_sign != 0:
+		#animated_sprite_2d.scale.x = face_sign
 func _process(delta):
 	var direction = movement_vector().normalized()
 	var target_velocity = max_speed * direction
-	
 	velocity = velocity.lerp(target_velocity, acceleration)
 	move_and_slide()
 	
-	if direction.x != 0 || direction.y != 0:
-		animated_sprite_2d.play("run")
-	else:
-		animated_sprite_2d.play("idle")
-		
-	var face_sign = sign(direction.x)
-	if face_sign != 0:
-		animated_sprite_2d.scale.x = face_sign
-	
-func movement_vector():
+#func movement_vector():
+	#var movement_x = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
+	#var movement_y = Input.get_action_strength("move_down") - Input.get_action_strength("move_up")
+	#return Vector2(movement_x, movement_y)
+
+func  movement_vector():
 	var movement_x = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
 	var movement_y = Input.get_action_strength("move_down") - Input.get_action_strength("move_up")
-	return Vector2(movement_x, movement_y)
+
+
+	if movement_x > 0:
+		$AnimatedSprite2D.play("run_right")
+		$AnimatedSprite2D.flip_h=false
+		lastDirection = "D"
+	elif movement_x < 0:
+		$AnimatedSprite2D.play("run_right")
+		$AnimatedSprite2D.flip_h=true
+		lastDirection = "A"
+
+	if movement_y > 0 and movement_x == 0:
+		$AnimatedSprite2D.play("run")
+		lastDirection = "S"
+
+	elif movement_y < 0 and movement_x == 0:
+		$AnimatedSprite2D.play("run_back")
+		lastDirection = "W"
+
+	if  movement_x == 0 and movement_y == 0:
+		if lastDirection == "A":
+			$AnimatedSprite2D.play("idle_right")
+			$AnimatedSprite2D.flip_h=true
+		elif lastDirection == "W":
+			$AnimatedSprite2D.play("idle_back")
+		elif lastDirection == "S":
+			$AnimatedSprite2D.play("idle")
+		elif lastDirection == "D":
+			$AnimatedSprite2D.play("idle_right")
+			$AnimatedSprite2D.flip_h=false
 	
+	return Vector2(movement_x,movement_y)
 	
 func check_if_damaged():
 	if enemies_colliding == 0 || !grace_period.is_stopped():
@@ -76,3 +117,4 @@ func on_ability_upgrade_added(upgrade: AbilityUpgrade, current_upgrades: Diction
 		
 	var new_ability = upgrade as NewAbility
 	ability_manager.add_child(new_ability.new_ability_scene.instantiate())
+	

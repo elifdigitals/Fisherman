@@ -1,9 +1,31 @@
-[gd_scene load_steps=4 format=3 uid="uid://8127grb7ljmn"]
+[gd_scene load_steps=7 format=3 uid="uid://8127grb7ljmn"]
 
-[ext_resource type="Script" path="res://scene/game_objects/exp_bottle/exp_bottle.gd" id="1_xm171"]
-[ext_resource type="Texture2D" uid="uid://hl51yntjjrpa" path="res://scene/game_objects/exp_bottle/exp_bottle.png" id="1_xq65t"]
+[ext_resource type="Script" uid="uid://cdv7qkgrvlbb5" path="res://scene/game_objects/exp_bottle/exp_bottle.gd" id="1_xm171"]
+[ext_resource type="Texture2D" uid="uid://clwelqtfqg4fn" path="res://scene/game_objects/exp_bottle/Fishes_16x16.png" id="2_y6dlc"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4p0ve"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_scb5l"]
+atlas = ExtResource("2_y6dlc")
+region = Rect2(32, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ycoxq"]
+atlas = ExtResource("2_y6dlc")
+region = Rect2(48, 16, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_m14kb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_scb5l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ycoxq")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="ExpBottle" type="Node2D"]
 script = ExtResource("1_xm171")
@@ -15,7 +37,9 @@ collision_mask = 8
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_4p0ve")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_xq65t")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_m14kb")
+autoplay = "default"
+frame_progress = 0.28755528
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
