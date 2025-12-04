@@ -1,8 +1,8 @@
 [gd_scene load_steps=8 format=4 uid="uid://dkh5kxucful7m"]
 
-[ext_resource type="Texture2D" uid="uid://bjlo0t53urugq" path="res://assets/map/Water_tiles.png" id="1_y4mit"]
-[ext_resource type="Texture2D" uid="uid://du7c8fnmfd3i6" path="res://assets/most/Furniture.png" id="2_vytyn"]
-[ext_resource type="Texture2D" uid="uid://dackded5bx24a" path="res://assets/rastitelnost_map/Vegetation.png" id="3_gb0sp"]
+[ext_resource type="Texture2D" uid="uid://c55v6p6ny61na" path="res://assets/Water_tiles.png" id="1_y4mit"]
+[ext_resource type="Texture2D" uid="uid://brs0auy6pns5t" path="res://assets/Furniture.png" id="2_vytyn"]
+[ext_resource type="Texture2D" uid="uid://bs3eu6t0holw2" path="res://assets/Vegetation.png" id="3_gb0sp"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_malf6"]
 texture = ExtResource("1_y4mit")
